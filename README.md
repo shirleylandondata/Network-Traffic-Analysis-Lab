@@ -1,16 +1,6 @@
-# Lab 2 — Wireshark & Network Traffic Analysis
+# Wireshark & Network Traffic Analysis Lab
 
 Hands-on packet capture and analysis lab performed with Wireshark, focused on building the foundational network visibility skills that underpin network engineering, SOC analysis, and cloud security work.
-
-| | |
-|---|---|
-| **Tool** | Wireshark (free, open source) |
-| **Environment** | Local machine or Azure VM |
-| **Category** | Network Analysis |
-| **Certification alignment** | CompTIA Network+ · Security+ · CySA+ |
-| **Cost** | $0 |
-| **Time invested** | ~2–4 hours across multiple sessions |
-| **Career relevance** | Network Engineer · SOC Analyst · Cloud Security Engineer · Incident Responder |
 
 ---
 
@@ -19,15 +9,6 @@ Hands-on packet capture and analysis lab performed with Wireshark, focused on bu
 Every incident, outage, and intrusion eventually comes down to the same question: *what actually happened on the wire?* This lab builds that skill from the ground up — capturing live traffic, applying display filters to cut through noise, reading a TCP three-way handshake, watching DNS resolve a domain, and reconstructing a full conversation between two hosts from individual packets.
 
 The exercises also include a deliberate demonstration of HTTP transmitting credentials in cleartext — the kind of evidence security teams use to justify enforcing HTTPS.
-
-## Why This Matters
-
-| Role | How this lab applies |
-|---|---|
-| Network Engineer | Diagnose connectivity issues by seeing exactly where packets are dropped or delayed |
-| SOC Analyst | Identify malicious traffic patterns and extract indicators of compromise from packet captures |
-| Cloud Security Engineer | The mental model transfers directly to reading Azure Network Watcher logs and VPC flow logs |
-| Help Desk / IT Support | Prove a reported network issue is real and isolate whether it's client-side or server-side |
 
 ## Architecture
 

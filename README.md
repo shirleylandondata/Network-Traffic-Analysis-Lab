@@ -10,6 +10,10 @@ Every incident, outage, and intrusion eventually comes down to the same question
 
 The exercises also include a deliberate demonstration of HTTP transmitting credentials in cleartext — the kind of evidence security teams use to justify enforcing HTTPS.
 
+## Watch Me Build This Lab Here!
+
+Add Link: 
+
 ## Architecture
 
 The diagram below traces how traffic actually reaches Wireshark: from the internet, through the gateway and local switch, into the NIC in promiscuous mode, and finally into Wireshark itself — where filtering and reassembly turn raw frames into the four analysis outcomes this lab produces.

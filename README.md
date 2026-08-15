@@ -61,9 +61,12 @@ Applied and validated the core filter set used throughout the lab:
 
 **B — TCP Three-Way Handshake:** Captured a connection to `http://example.com`, filtered to the target IP, and identified the SYN → SYN-ACK → ACK sequence that establishes every TCP connection.
 
+<img width="1456" height="487" alt="Screenshot 2026-08-13 201143" src="https://github.com/user-attachments/assets/905a1914-b81f-4724-bbcd-fe257aacd5cd" />
+
 **C — Cleartext Credentials (HTTP):** *Educational exercise, performed only against a system I own/control.* Submitted a test login over HTTP and filtered on `http.request.method == POST` to view the submitted username and password in plaintext inside the HTML Form URL Encoded layer — direct evidence of why HTTPS is mandatory for any page handling credentials.
 
 **D — Follow TCP Stream:** Used *Follow → TCP Stream* on an HTTP conversation to reassemble the full client/server exchange into readable form, the same technique used in real incident response to reconstruct what data was transferred during an event.
+
 
 ### 5. Save & Export
 Captures saved in `.pcapng` format via *File → Save As*, with filtered subsets exported via *File → Export Specified Packets → Displayed*.

@@ -55,12 +55,12 @@ Downloaded from [wireshark.org](https://www.wireshark.org/download.html). On Win
 Captured live traffic on the active interface while browsing to a website, confirming packets appear in real time and that a 30-second window alone generates hundreds of frames — motivating the need for filters.
 
 **Interface selection screen with live activity graphs**
+
 <img width="916" height="801" alt="01-interface-lists" src="https://github.com/user-attachments/assets/d3ff42ee-3e6a-4b32-8156-7da8f3c74a23" />
 
 **Packets populating in real time during the first capture**
+
 <img width="1359" height="679" alt="02-first-capture" src="https://github.com/user-attachments/assets/d201fa6d-671e-4663-b977-b70a7d4f8072" />
-
-
 
 ### 3. Display Filters
 Applied and validated the core filter set used throughout the lab:

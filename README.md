@@ -82,6 +82,7 @@ Applied and validated the core filter set used throughout the lab:
 **A — DNS Lookup:** Ran `nslookup google.com` in a terminal while capturing, then filtered on `dns` to locate the A-record query and its matching response, confirming the resolved IP against the terminal output.
 
 **DNS query response**
+
 <img width="735" height="630" alt="03-dns-query-response" src="https://github.com/user-attachments/assets/bd324b8a-cd7c-4263-81c0-97c78ceb76dd" />
 
 <img width="1364" height="703" alt="03 1-dns-query-filtered-response" src="https://github.com/user-attachments/assets/f0dd49de-e157-4505-a7d2-59dbfea29485" />
@@ -89,16 +90,19 @@ Applied and validated the core filter set used throughout the lab:
 **B — TCP Three-Way Handshake:** Captured a connection to `http://example.com`, filtered to the target IP, and identified the SYN → SYN-ACK → ACK sequence that establishes every TCP connection.
 
 **Three packets showing SYN, SYN-ACK, ACK flags**
+
 <img width="1446" height="657" alt="04-tcp-handshake" src="https://github.com/user-attachments/assets/dc0078ab-8fef-4e4c-b7ad-2736be194390" />
 
 **C — Cleartext Credentials (HTTP):** *Educational exercise, performed only against a system I own/control.* Submitted a test login over HTTP and filtered on `http.request.method == POST` to view the submitted username and password in plaintext inside the HTML Form URL Encoded layer — direct evidence of why HTTPS is mandatory for any page handling credentials.
 
 **POST packet with HTML Form URL Encoded layer expanded (redact the actual credential value before publishing)**
+
 <img width="1366" height="756" alt="05-http-clear-text-credentials" src="https://github.com/user-attachments/assets/a2832170-fee6-4e44-8690-0a5d4c89dbbe" />
 
 **D — Follow TCP Stream:** Used *Follow → TCP Stream* on an HTTP conversation to reassemble the full client/server exchange into readable form, the same technique used in real incident response to reconstruct what data was transferred during an event.
 
 **Reassembled stream window, red request / blue response**
+
 <img width="870" height="820" alt="06-tcp-stream-follow" src="https://github.com/user-attachments/assets/6805146a-9bf3-4c7e-a736-d63d0c71fb60" />
 
 
@@ -106,6 +110,7 @@ Applied and validated the core filter set used throughout the lab:
 Captures saved in `.pcapng` format via *File → Save As*, with filtered subsets exported via *File → Export Specified Packets → Displayed*.
 
 **Save As dialog or the saved `.pcapng` file in your file browser**
+
 <img width="1382" height="503" alt="07-saved-capture-file" src="https://github.com/user-attachments/assets/1ba18d68-96ef-4975-bdba-62edd778d48a" />
 
 ## Verification Checklist
@@ -115,16 +120,6 @@ Captures saved in `.pcapng` format via *File → Save As*, with filtered subsets
 - [x] Traffic filtered by IP, port, and protocol from memory
 - [x] Full TCP stream followed and read as a conversation
 - [x] Capture saved, closed, and successfully reopened
-
-## Evidence / Portfolio Artifacts
-
-> ⚠️ Capture files may contain personal browsing data (IPs, hostnames, and in Exercise C, credentials from a test-only account). Review and redact before publishing any `.pcapng` files publicly.
-
-- `captures/dns-lookup.pcapng` — DNS query/response for `google.com`
-- `captures/tcp-handshake.pcapng` — Full three-way handshake to `example.com`
-- `captures/tcp-stream-follow.pcapng` — Reassembled HTTP conversation
-- `screenshots/` — Annotated screenshots of each exercise (see [Repository Structure](#repository-structure))
-- [`video-script.md`](video-script.md) — Script for a recorded walkthrough of this lab
 
 ## Disclaimer
 

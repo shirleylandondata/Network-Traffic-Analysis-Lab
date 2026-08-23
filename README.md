@@ -31,7 +31,7 @@ The exercises also include a deliberate demonstration of HTTP transmitting crede
 
 ## Architecture
 
-The diagram below traces how traffic actually reaches Wireshark: from the internet, through the gateway and local switch, into the NIC in promiscuous mode, and finally into Wireshark itself — where filtering and reassembly turn raw frames into the four analysis outcomes this lab produces.
+The lab architecture illustrates the path network traffic takes from external resources through the local network and network interface before being captured by Wireshark. Once captured, packets can be filtered, inspected, and reconstructed to analyze DNS resolution, TCP connections, HTTP traffic, and complete network conversations.
 
 <img width="1000" height="560" alt="architecture-diagram" src="https://github.com/user-attachments/assets/8fea7d94-06e6-4d04-8b68-af73132d7b05" />
 
@@ -54,11 +54,15 @@ Downloaded from [wireshark.org](https://www.wireshark.org/download.html). On Win
 ### 2. First Capture
 Captured live traffic on the active interface while browsing to a website, confirming packets appear in real time and that a 30-second window alone generates hundreds of frames — motivating the need for filters.
 
-**Interface selection screen with live activity graphs**
+**01 — Interface Selections**
+
+Wireshark displayed the available network interfaces and their live activity levels. I selected the active interface to begin capturing traffic, establishing the data source for the packet analysis performed throughout the lab.
 
 <img width="916" height="801" alt="01-interface-lists" src="https://github.com/user-attachments/assets/d3ff42ee-3e6a-4b32-8156-7da8f3c74a23" />
 
-**Packets populating in real time during the first capture**
+**02 — First Live Packet Capture**
+
+Live packet capture confirmed that Wireshark was successfully monitoring traffic from the selected network interface. The volume and variety of packets demonstrated how quickly network activity accumulates and why display filters are essential for isolating relevant traffic.
 
 <img width="1359" height="679" alt="02-first-capture" src="https://github.com/user-attachments/assets/d201fa6d-671e-4663-b977-b70a7d4f8072" />
 
@@ -79,37 +83,39 @@ Applied and validated the core filter set used throughout the lab:
 
 ### 4. Guided Exercises
 
-**A — DNS Lookup:** Ran `nslookup google.com` in a terminal while capturing, then filtered on `dns` to locate the A-record query and its matching response, confirming the resolved IP against the terminal output.
+**03 — DNS Query and Response**
 
-**DNS query response**
+I generated DNS traffic using nslookup google.com and captured the resulting packets in Wireshark. The capture shows the DNS lookup process in which the client requests the IP address associated with a domain and receives a response from the DNS server.
 
 <img width="735" height="630" alt="03-dns-query-response" src="https://github.com/user-attachments/assets/bd324b8a-cd7c-4263-81c0-97c78ceb76dd" />
 
+**03.1 — Filtered DNS Analysis**
+
+Applying the dns display filter isolated DNS traffic from the larger packet capture. This made it possible to focus on the query and response packets and verify how domain-name resolution appears at the packet level.
+
 <img width="1364" height="703" alt="03 1-dns-query-filtered-response" src="https://github.com/user-attachments/assets/f0dd49de-e157-4505-a7d2-59dbfea29485" />
 
-**B — TCP Three-Way Handshake:** Captured a connection to `http://example.com`, filtered to the target IP, and identified the SYN → SYN-ACK → ACK sequence that establishes every TCP connection.
+**04 — TCP Three-Way Handshake**
 
-**Three packets showing SYN, SYN-ACK, ACK flags**
+I isolated a TCP connection and identified the SYN, SYN-ACK, and ACK packets that form the TCP three-way handshake. This sequence confirms that the client and server successfully established a reliable connection before application data was exchanged.
 
 <img width="1446" height="657" alt="04-tcp-handshake" src="https://github.com/user-attachments/assets/dc0078ab-8fef-4e4c-b7ad-2736be194390" />
 
-**C — Cleartext Credentials (HTTP):** *Educational exercise, performed only against a system I own/control.* Submitted a test login over HTTP and filtered on `http.request.method == POST` to view the submitted username and password in plaintext inside the HTML Form URL Encoded layer — direct evidence of why HTTPS is mandatory for any page handling credentials.
+**05 — HTTP Cleartext Credentials**
 
-**POST packet with HTML Form URL Encoded layer expanded (redact the actual credential value before publishing)**
+This controlled exercise demonstrates the security risk of transmitting authentication data over unencrypted HTTP. By inspecting the HTTP POST request, I was able to observe submitted form data within the captured packet, showing why sensitive web traffic should be protected with HTTPS/TLS.
 
 <img width="1366" height="756" alt="05-http-clear-text-credentials" src="https://github.com/user-attachments/assets/a2832170-fee6-4e44-8690-0a5d4c89dbbe" />
 
-**D — Follow TCP Stream:** Used *Follow → TCP Stream* on an HTTP conversation to reassemble the full client/server exchange into readable form, the same technique used in real incident response to reconstruct what data was transferred during an event.
+**06 — Follow TCP Stream**
 
-**Reassembled stream window, red request / blue response**
+Using Wireshark's Follow TCP Stream feature, I reconstructed the individual TCP packets into a readable client-server conversation. This demonstrated how packet-level data can be reassembled to understand what information was exchanged during a network session.
 
 <img width="870" height="820" alt="06-tcp-stream-follow" src="https://github.com/user-attachments/assets/6805146a-9bf3-4c7e-a736-d63d0c71fb60" />
 
+**07 — Saved Packet Capture**
 
-### 5. Save & Export
-Captures saved in `.pcapng` format via *File → Save As*, with filtered subsets exported via *File → Export Specified Packets → Displayed*.
-
-**Save As dialog or the saved `.pcapng` file in your file browser**
+I saved the completed capture in .pcapng format so the network traffic could be reopened and analyzed later. Preserving packet captures supports repeatable investigations and allows analysts to apply new filters or revisit network activity without reproducing the original traffic.
 
 <img width="1382" height="503" alt="07-saved-capture-file" src="https://github.com/user-attachments/assets/1ba18d68-96ef-4975-bdba-62edd778d48a" />
 

@@ -54,9 +54,12 @@ Downloaded from [wireshark.org](https://www.wireshark.org/download.html). On Win
 ### 2. First Capture
 Captured live traffic on the active interface while browsing to a website, confirming packets appear in real time and that a 30-second window alone generates hundreds of frames — motivating the need for filters.
 
-📸 *Screenshot: `screenshots/01-interface-list.png` — interface selection screen with live activity graphs*
-📸 *Screenshot: `screenshots/02-first-capture.png` — packets populating in real time during the first capture*
-<!-- ![First capture](screenshots/02-first-capture.png) -->
+**Interface selection screen with live activity graphs**
+<img width="916" height="801" alt="01-interface-lists" src="https://github.com/user-attachments/assets/d3ff42ee-3e6a-4b32-8156-7da8f3c74a23" />
+
+**Packets populating in real time during the first capture**
+<img width="1359" height="679" alt="02-first-capture" src="https://github.com/user-attachments/assets/d201fa6d-671e-4663-b977-b70a7d4f8072" />
+
 
 
 ### 3. Display Filters
@@ -78,29 +81,32 @@ Applied and validated the core filter set used throughout the lab:
 
 **A — DNS Lookup:** Ran `nslookup google.com` in a terminal while capturing, then filtered on `dns` to locate the A-record query and its matching response, confirming the resolved IP against the terminal output.
 
-📸 *Screenshot: `screenshots/03-dns-query-response.png` — filtered `dns` view with query + response, transaction IDs matching*
-<!-- ![DNS query and response](screenshots/03-dns-query-response.png) -->
+**DNS query response**
+<img width="735" height="630" alt="03-dns-query-response" src="https://github.com/user-attachments/assets/bd324b8a-cd7c-4263-81c0-97c78ceb76dd" />
+
+<img width="1364" height="703" alt="03 1-dns-query-filtered-response" src="https://github.com/user-attachments/assets/f0dd49de-e157-4505-a7d2-59dbfea29485" />
 
 **B — TCP Three-Way Handshake:** Captured a connection to `http://example.com`, filtered to the target IP, and identified the SYN → SYN-ACK → ACK sequence that establishes every TCP connection.
 
-📸 *Screenshot: `screenshots/04-tcp-handshake.png` — three packets showing SYN, SYN-ACK, ACK flags*
-<!-- ![TCP three-way handshake](screenshots/04-tcp-handshake.png) -->
+**Three packets showing SYN, SYN-ACK, ACK flags**
+<img width="1446" height="657" alt="04-tcp-handshake" src="https://github.com/user-attachments/assets/dc0078ab-8fef-4e4c-b7ad-2736be194390" />
 
 **C — Cleartext Credentials (HTTP):** *Educational exercise, performed only against a system I own/control.* Submitted a test login over HTTP and filtered on `http.request.method == POST` to view the submitted username and password in plaintext inside the HTML Form URL Encoded layer — direct evidence of why HTTPS is mandatory for any page handling credentials.
 
-📸 *Screenshot: `screenshots/05-http-cleartext-creds.png` — POST packet with HTML Form URL Encoded layer expanded (redact the actual credential value before publishing)*
-<!-- ![Cleartext HTTP credentials](screenshots/05-http-cleartext-creds.png) -->
+**POST packet with HTML Form URL Encoded layer expanded (redact the actual credential value before publishing)**
+<img width="1366" height="756" alt="05-http-clear-text-credentials" src="https://github.com/user-attachments/assets/a2832170-fee6-4e44-8690-0a5d4c89dbbe" />
 
 **D — Follow TCP Stream:** Used *Follow → TCP Stream* on an HTTP conversation to reassemble the full client/server exchange into readable form, the same technique used in real incident response to reconstruct what data was transferred during an event.
 
-📸 *Screenshot: `screenshots/06-tcp-stream-follow.png` — reassembled stream window, red request / blue response*
-<!-- ![Follow TCP stream](screenshots/06-tcp-stream-follow.png) -->
+**Reassembled stream window, red request / blue response**
+<img width="870" height="820" alt="06-tcp-stream-follow" src="https://github.com/user-attachments/assets/6805146a-9bf3-4c7e-a736-d63d0c71fb60" />
+
 
 ### 5. Save & Export
 Captures saved in `.pcapng` format via *File → Save As*, with filtered subsets exported via *File → Export Specified Packets → Displayed*.
 
-📸 *Screenshot: `screenshots/07-saved-capture-file.png` — Save As dialog or the saved `.pcapng` file in your file browser*
-<!-- ![Saved capture file](screenshots/07-saved-capture-file.png) -->
+**Save As dialog or the saved `.pcapng` file in your file browser**
+<img width="1382" height="503" alt="07-saved-capture-file" src="https://github.com/user-attachments/assets/1ba18d68-96ef-4975-bdba-62edd778d48a" />
 
 ## Verification Checklist
 

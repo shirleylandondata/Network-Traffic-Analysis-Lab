@@ -55,6 +55,7 @@ The lab architecture illustrates the path network traffic takes from external re
 
 <img width="1000" height="560" alt="architecture-diagram" src="https://github.com/user-attachments/assets/8fea7d94-06e6-4d04-8b68-af73132d7b05" />
 
+---
 ## Skills Demonstrated
 
 - Capturing live traffic on an active network interface
@@ -121,30 +122,35 @@ Applying the dns display filter isolated DNS traffic from the larger packet capt
 
 <img width="1364" height="703" alt="03 1-dns-query-filtered-response" src="https://github.com/user-attachments/assets/f0dd49de-e157-4505-a7d2-59dbfea29485" />
 
+---
 **04 — TCP Three-Way Handshake**
 
 I isolated a TCP connection and identified the SYN, SYN-ACK, and ACK packets that form the TCP three-way handshake. This sequence confirms that the client and server successfully established a reliable connection before application data was exchanged.
 
 <img width="1446" height="657" alt="04-tcp-handshake" src="https://github.com/user-attachments/assets/dc0078ab-8fef-4e4c-b7ad-2736be194390" />
 
+---
 **05 — HTTP Cleartext Credentials**
 
 This controlled exercise demonstrates the security risk of transmitting authentication data over unencrypted HTTP. By inspecting the HTTP POST request, I was able to observe submitted form data within the captured packet, showing why sensitive web traffic should be protected with HTTPS/TLS.
 
 <img width="1366" height="756" alt="05-http-clear-text-credentials" src="https://github.com/user-attachments/assets/a2832170-fee6-4e44-8690-0a5d4c89dbbe" />
 
+---
 **06 — Follow TCP Stream**
 
 Using Wireshark's Follow TCP Stream feature, I reconstructed the individual TCP packets into a readable client-server conversation. This demonstrated how packet-level data can be reassembled to understand what information was exchanged during a network session.
 
 <img width="870" height="820" alt="06-tcp-stream-follow" src="https://github.com/user-attachments/assets/6805146a-9bf3-4c7e-a736-d63d0c71fb60" />
 
+---
 **07 — Saved Packet Capture**
 
 I saved the completed capture in .pcapng format so the network traffic could be reopened and analyzed later. Preserving packet captures supports repeatable investigations and allows analysts to apply new filters or revisit network activity without reproducing the original traffic.
 
 <img width="1382" height="503" alt="07-saved-capture-file" src="https://github.com/user-attachments/assets/1ba18d68-96ef-4975-bdba-62edd778d48a" />
 
+---
 ## Verification Checklist
 
 - [x] DNS query and response packets identified with matching transaction IDs
@@ -153,6 +159,7 @@ I saved the completed capture in .pcapng format so the network traffic could be 
 - [x] Full TCP stream followed and read as a conversation
 - [x] Capture saved, closed, and successfully reopened
 
+---
 ## Disclaimer
 
 All packet captures in this lab were performed on networks and systems I own or have explicit permission to test. Exercise C in particular is included strictly as an educational demonstration of a known protocol weakness (unencrypted HTTP) and was not performed against any third-party or production system.

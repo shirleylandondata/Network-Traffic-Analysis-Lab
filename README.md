@@ -33,7 +33,7 @@ The exercises also include a deliberate demonstration of HTTP transmitting crede
 
 The diagram below traces how traffic actually reaches Wireshark: from the internet, through the gateway and local switch, into the NIC in promiscuous mode, and finally into Wireshark itself — where filtering and reassembly turn raw frames into the four analysis outcomes this lab produces.
 
-![Architecture diagram showing traffic flow from the internet through a router and switch into a host machine's network interface in promiscuous mode, captured by Wireshark, and broken into DNS query/response, TCP handshake, cleartext HTTP credentials, and TCP stream analysis](architecture-diagram.svg)
+<img width="1000" height="560" alt="architecture-diagram" src="https://github.com/user-attachments/assets/8fea7d94-06e6-4d04-8b68-af73132d7b05" />
 
 ## Skills Demonstrated
 

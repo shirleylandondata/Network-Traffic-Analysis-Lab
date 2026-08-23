@@ -2,6 +2,26 @@
 
 Hands-on packet capture and analysis lab performed with Wireshark, focused on building the foundational network visibility skills that underpin network engineering, SOC analysis, and cloud security work.
 
+## What This Lab Demonstrates
+
+This project demonstrates my ability to capture, filter, and analyze network traffic using Wireshark while connecting packet-level activity to real-world networking and security concepts.
+
+Through this lab, I demonstrated:
+
+* Packet Capture and Analysis — Captured live network traffic and inspected packet headers, protocols, source and destination IP addresses, and ports.
+* DNS Analysis — Traced DNS queries and responses to understand how domain names are resolved to IP addresses.
+* TCP Connection Analysis — Identified the SYN, SYN-ACK, and ACK sequence used to establish a TCP connection.
+* Protocol Filtering — Used Wireshark display filters to isolate DNS, TCP, HTTP, IP, and port-specific traffic during an investigation.
+* HTTP Security Analysis — Examined unencrypted HTTP traffic and demonstrated how sensitive information can be exposed when TLS encryption is not used.
+* TCP Stream Reconstruction — Reassembled individual packets into a complete client-server conversation using Follow TCP Stream.
+* Packet Capture Preservation — Saved network captures in `.pcapng` format for later investigation and repeatable analysis.
+* Security-Focused Investigation — Used packet-level evidence to identify communication patterns and evaluate potential security risks within network traffic.
+
+### Tools & Technologies
+
+`Wireshark` · `TCP/IP` · `DNS` · `HTTP` · `TCP` · `Packet Analysis` · `Network Security`
+
+
 | | |
 |---|---|
 | **Tool** | Wireshark (free, open source) |

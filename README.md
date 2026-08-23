@@ -1,4 +1,4 @@
-# Lab 2 — Wireshark & Network Traffic Analysis
+# Network Traffic Analysis Lab
 
 Hands-on packet capture and analysis lab performed with Wireshark, focused on building the foundational network visibility skills that underpin network engineering, SOC analysis, and cloud security work.
 

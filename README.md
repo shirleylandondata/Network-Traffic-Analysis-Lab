@@ -66,11 +66,14 @@ The lab architecture illustrates the path network traffic takes from external re
 - Saving, exporting, and re-opening `.pcapng` capture files for later analysis
 - Command-line packet capture with `tshark`
 
+---
+
 ## Lab Walkthrough
 
 ### 1. Install Wireshark
 Downloaded from [wireshark.org](https://www.wireshark.org/download.html). On Windows this includes Npcap; on macOS, ChmodBPF permissions were granted; on Linux, the user was added to the `wireshark` group to allow non-root capture.
 
+---
 ### 2. First Capture
 Captured live traffic on the active interface while browsing to a website, confirming packets appear in real time and that a 30-second window alone generates hundreds of frames — motivating the need for filters.
 
@@ -80,12 +83,14 @@ Wireshark displayed the available network interfaces and their live activity lev
 
 <img width="916" height="801" alt="01-interface-lists" src="https://github.com/user-attachments/assets/d3ff42ee-3e6a-4b32-8156-7da8f3c74a23" />
 
+---
 **02 — First Live Packet Capture**
 
 Live packet capture confirmed that Wireshark was successfully monitoring traffic from the selected network interface. The volume and variety of packets demonstrated how quickly network activity accumulates and why display filters are essential for isolating relevant traffic.
 
 <img width="1359" height="679" alt="02-first-capture" src="https://github.com/user-attachments/assets/d201fa6d-671e-4663-b977-b70a7d4f8072" />
 
+---
 ### 3. Display Filters
 Applied and validated the core filter set used throughout the lab:
 
@@ -101,6 +106,7 @@ Applied and validated the core filter set used throughout the lab:
 | `tcp.port == 443` | Isolate encrypted (HTTPS) traffic |
 | `http.request` | Isolate HTTP GET/POST requests |
 
+---
 ### 4. Guided Exercises
 
 **03 — DNS Query and Response**

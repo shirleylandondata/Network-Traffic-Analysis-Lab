@@ -14,31 +14,6 @@ Hands-on packet capture and analysis lab performed with Wireshark, focused on bu
 
 ---
 
-## Repository Structure
-
-```
-lab-02-wireshark-network-analysis/
-├── README.md                          # This file
-├── architecture-diagram.svg           # Traffic flow / capture architecture diagram
-├── video-script.md                    # Script for the walkthrough video
-│
-├── screenshots/                       # 📸 ADD YOUR SCREENSHOTS HERE
-│   ├── 01-interface-list.png          # Wireshark welcome screen, interfaces + live graphs
-│   ├── 02-first-capture.png           # First live capture in progress
-│   ├── 03-dns-query-response.png      # Filtered `dns` view, query + matching response
-│   ├── 04-tcp-handshake.png           # SYN / SYN-ACK / ACK sequence highlighted
-│   ├── 05-http-cleartext-creds.png    # POST packet, HTML Form URL Encoded layer expanded
-│   ├── 06-tcp-stream-follow.png       # Follow TCP Stream reassembled conversation
-│   └── 07-saved-capture-file.png      # File → Save As dialog / .pcapng in file browser
-│
-└── captures/                          # Raw evidence — redact before publishing
-    ├── dns-lookup.pcapng
-    ├── tcp-handshake.pcapng
-    └── tcp-stream-follow.pcapng
-```
-
-> **Note:** Create the `screenshots/` and `captures/` folders in your repo and drop the files in using the exact names above — the README already links to them by that path, so nothing else needs to change once they're in place.
-
 ## Overview
 
 Every incident, outage, and intrusion eventually comes down to the same question: *what actually happened on the wire?* This lab builds that skill from the ground up — capturing live traffic, applying display filters to cut through noise, reading a TCP three-way handshake, watching DNS resolve a domain, and reconstructing a full conversation between two hosts from individual packets.

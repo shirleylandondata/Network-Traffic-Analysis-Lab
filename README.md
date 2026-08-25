@@ -2,6 +2,10 @@
 
 Hands-on packet capture and analysis lab performed with Wireshark, focused on building the foundational network visibility skills that underpin network engineering, SOC analysis, and cloud security work.
 
+## Watch The Lab Walkthrough Here
+
+https://www.loom.com/share/1108d67c2fc44d7d9ffc2af16457e0e6
+
 ## What This Lab Demonstrates
 
 This project demonstrates my ability to capture, filter, and analyze network traffic using Wireshark while connecting packet-level activity to real-world networking and security concepts.
